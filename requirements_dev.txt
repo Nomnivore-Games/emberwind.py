@@ -1,0 +1,5 @@
+pip==22.3.1
+wheel==0.38.4
+aiohttp==3.8.4
+asyncio==3.4.3
+twine==4.0.2
