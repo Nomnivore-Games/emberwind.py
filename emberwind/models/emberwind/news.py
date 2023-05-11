@@ -1,4 +1,4 @@
-from attrs import asdict, define, make_class, Factory
+import attrs
 from emberwind.models.emberwind import article
 from emberwind.models.emberwind.article import Article
 
@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 
-@define
+@attrs.define
 class News:
     """News model."""
 
