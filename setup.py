@@ -6,7 +6,7 @@ with open("README.md", "r") as readme_file:
 requirements = ["aiohttp>=3"]
 
 setup(
-    name="emberwind.py",
+    name="client.py",
     version="0.0.1",
     author="MimicByte",
     author_email="Aidan.MurphyCM@gmail.com",
