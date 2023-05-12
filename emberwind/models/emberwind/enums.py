@@ -1,4 +1,4 @@
-from enum import Enum, StrEnum
+from enum import Enum
 
 
 __all__ = [
@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 
-class Order(StrEnum):
+class Order(Enum):
     """Order enum for sorting articles."""
 
     TITLE = "title"
@@ -17,7 +17,7 @@ class Order(StrEnum):
     """Sort by last updated."""
 
 
-class Sorting(StrEnum):
+class Sorting(Enum):
     """Sorting enum for sorting articles."""
 
     ASCENDING = "asc"
