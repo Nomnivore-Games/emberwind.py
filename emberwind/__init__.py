@@ -3,11 +3,17 @@ from .client import (
 )
 from .models import (
     Article,
+    Category,
     News,
+    Order,
+    Sorting,
 )
 
 __all__ = [
-    "Client",
     "Article",
+    "Category",
+    "Client",
     "News",
+    "Order",
+    "Sorting",
 ]

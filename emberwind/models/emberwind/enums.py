@@ -2,10 +2,25 @@ from enum import Enum
 
 
 __all__ = [
+    "Category",
     "Order",
     "Sorting",
-    "Category",
 ]
+
+
+class Category(Enum):
+    """Category enum for filtering articles."""
+
+    STORE = 1
+    """Store articles."""
+    CONVENTIONS = 2
+    """Convention articles."""
+    CLASSES = 3
+    """Class articles."""
+    ARCHIVE = 4
+    """Archive articles."""
+    DLCROUNDUPS = 5
+    """DLC round-up articles."""
 
 
 class Order(Enum):
@@ -24,18 +39,3 @@ class Sorting(Enum):
     """Sort in ascending order."""
     DESCENDING = "desc"
     """Sort in descending order."""
-
-
-class Category(Enum):
-    """Category enum for filtering articles."""
-
-    STORE = 1
-    """Store articles."""
-    CONVENTIONS = 2
-    """Convention articles."""
-    CLASSES = 3
-    """Class articles."""
-    ARCHIVE = 4
-    """Archive articles."""
-    DLCROUNDUPS = 5
-    """DLC round-up articles."""

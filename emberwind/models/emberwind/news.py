@@ -1,10 +1,10 @@
+from __future__ import annotations
+
 import attrs
-from emberwind.models.emberwind import article
 from emberwind.models.emberwind.article import Article
 
 __all__ = [
     "News",
-    "from_json",
 ]
 
 
@@ -19,15 +19,15 @@ class News:
     articles: list[Article]
     """List of articles."""
 
-
-def from_json(json: dict) -> News:
-    """
-    Create a News object from a JSON object.
-    :param json:
-    :return News:
-    """
-    return News(
-        total_articles=json["metadata"]["totalElements"],
-        total_pages=json["metadata"]["totalPages"],
-        articles=[article.from_json(a) for a in json["data"]],
-    )
+    @classmethod
+    def from_json(cls, json: dict) -> News:
+        """
+        Create a News object from a JSON object.
+        :param json:
+        :return News:
+        """
+        return News(
+            total_articles=json["metadata"]["totalElements"],
+            total_pages=json["metadata"]["totalPages"],
+            articles=[Article.from_json(d) for d in json["data"]],
+        )

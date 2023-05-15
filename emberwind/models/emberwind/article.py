@@ -1,10 +1,10 @@
-from attrs import define
+from __future__ import annotations
 
+from attrs import define
 from emberwind.models.emberwind.enums import Category
 
 __all__ = [
     "Article",
-    "from_json",
 ]
 
 
@@ -41,26 +41,26 @@ class Article:
     images_base_url: str
     """Article images base URL."""
 
-
-def from_json(json: dict) -> Article:
-    """
-    Create an Article from a JSON object.
-    :param json:
-    :return Article:
-    """
-    return Article(
-        id=json["id"],
-        slug=json["slug"],
-        title=json["title"],
-        short_title=json["shortTitle"],
-        sub_title=json["subTitle"],
-        updated=json["updated"],
-        created=json["created"],
-        thumbnail_name=json["thumbnail"]["name"],
-        thumbnail_url=json["thumbnail"]["imageUrl"],
-        categories=[Category(c["id"]) for c in json["categories"]],
-        content=json.get("content", None),
-        hero_image_name=json.get("heroImage", {}).get("name", None),
-        hero_image_url=json.get("heroImage", {}).get("imageUrl", None),
-        images_base_url=json.get("imagesBaseUrl", None),
-    )
+    @classmethod
+    def from_json(cls, json: dict) -> Article:
+        """
+        Create an Article from a JSON object.
+        :param json:
+        :return Article:
+        """
+        return Article(
+            id=json["id"],
+            slug=json["slug"],
+            title=json["title"],
+            short_title=json["shortTitle"],
+            sub_title=json["subTitle"],
+            updated=json["updated"],
+            created=json["created"],
+            thumbnail_name=json["thumbnail"]["name"],
+            thumbnail_url=json["thumbnail"]["imageUrl"],
+            categories=[Category(c["id"]) for c in json["categories"]],
+            content=json.get("content", None),
+            hero_image_name=json.get("heroImage", {}).get("name", None),
+            hero_image_url=json.get("heroImage", {}).get("imageUrl", None),
+            images_base_url=json.get("imagesBaseUrl", None),
+        )
