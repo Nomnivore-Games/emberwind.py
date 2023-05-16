@@ -1,5 +1,4 @@
-from .emberwind.article import Article
-from .emberwind.news import News
+from .emberwind.news import Article, News
 from .emberwind.enums import Category, Sorting, Order
 
 __all__ = [
