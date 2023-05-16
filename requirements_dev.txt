@@ -3,7 +3,7 @@ wheel==0.38.4
 aiohttp==3.8.4
 asyncio==3.4.3
 twine==4.0.2
-sphinx==7.0.0
+sphinx==6.2.1
 pytest==7.3.1
 pytest-cov==4.0.0
 pytest-asyncio==0.21.0
