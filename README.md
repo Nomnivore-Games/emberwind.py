@@ -9,4 +9,7 @@
    [![](https://img.shields.io/badge/Code%20Style-black-000000.svg)](https://github.com/psf/black)
    ![](https://img.shields.io/github/license/Nomnivore-Games/emberwind.py)
 
+   [![](https://img.shields.io/badge/Docs-latest-x?logo=readthedocs)](https://emberwindpy.readthedocs.io/en/latest/#)
+   [![image](https://discord.com/api/guilds/518833007398748161/embed.png)](https://discord.gg/34BYtFQX55)
+
 </div>
