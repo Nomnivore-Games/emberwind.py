@@ -27,6 +27,8 @@ jobs:
       - name: Test with pytest
         run: |
           pytest --cov=emberwind tests/
+        env:
+          EMBERWIND_API_KEY: ${{ secrets.EMBERWIND_API_KEY }}
       - name: Coveralls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

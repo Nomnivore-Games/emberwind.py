@@ -1,5 +1,6 @@
 from .client import (
     Client,
+    NewsController,
 )
 from .models import (
     Article,
@@ -14,6 +15,7 @@ __all__ = [
     "Category",
     "Client",
     "News",
+    "NewsController",
     "Order",
     "Sorting",
 ]
