@@ -11,3 +11,4 @@ coveralls==3.3.1
 sphinx-rtd-theme==1.2.0
 asks==3.0.0
 python-dotenv==1.0.0
+black==23.3.0
