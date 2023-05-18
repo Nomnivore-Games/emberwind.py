@@ -25,8 +25,15 @@ jobs:
           # default set of ruff rules with GitHub Annotations
           ruff --format=github --target-version=py37 .
       - name: Check formatting with Black
-        run: |
-          black --check .
+        uses: rickstaa/action-black@v1
+        id: action_black
+        with:
+          black_args: "."
+      - name: Annotate diff changes using reviewdog
+        if: steps.action_black.outputs.is_formatted == 'true'
+        uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: blackfmt
       - name: Test with pytest
         run: |
           pytest --cov=emberwind tests/

@@ -7,6 +7,12 @@ def test_create_article():
         Article()
 
 
+
+
+
+
+
+
 def test_create_article_from_json():
     json = {
         "id": 0,
