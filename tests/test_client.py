@@ -17,6 +17,10 @@ async def test_create_client_without_url():
         assert client.url == "https://emberwindgame.com/emberwind-web/api/v1/web"
 
 
+
+
+
+
 async def test_create_client_with_url():
     async with Client(key="", url=URL) as client:
         assert client.url == URL
