@@ -27,6 +27,8 @@ jobs:
           pytest --cov=emberwind tests/
         env:
           EMBERWIND_API_KEY: ${{ secrets.EMBERWIND_API_KEY }}
+          EMBERWIND_TEST_EMAIL: ${{ secrets.EMBERWIND_TEST_EMAIL }}
+          EMBERWIND_TEST_PASSWORD: ${{ secrets.EMBERWIND_TEST_PASSWORD }}
       - name: Coveralls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
