@@ -1,34 +1,59 @@
 from asks import Session
 
+from emberwind.client.auth import AuthorizationController
 from emberwind.client.content import NewsController, FAQController
 from emberwind.models.emberwind.enums import Order, Sorting, Category
 from emberwind.models.emberwind.faq import FAQ, Question, Topic
 from emberwind.models.emberwind.news import Article, News
+from emberwind.models.emberwind.user import User
 
 
 class Client:
-    def __init__(self, key: str, email: str = "", password: str = "", url: str = ""):
-        """Initialize the client with the key, email, and password.
-        :param key: The API key for the client.
-        :param email: The email for the client.
-        :param password: The password for the client."""
+    def __init__(self, key: str, url: str = ""):
+        """
+        Initialize the client with the key, email, and password.
 
-        self.key = key
-        self.email = email
-        self.password = password
+        :param key: The API key for the client.
+        :param url: The URL for the API endpoint.
+        """
+
+        self.user = None
+        self.key: str = key
 
         if not url:
-            self.url = "https://emberwindgame.com/emberwind-web/api/v1/web"
+            self.url: str = "https://emberwindgame.com/emberwind-web/api/v1/web"
         else:
-            self.url = url
+            self.url: str = url
 
-    async def __aenter__(self):
-        self.session = Session()
-        self.session.headers.update({"Emberwind-Api-Key": self.key})
-        return self
+        self.session: Session = Session()
+        self.session.headers.update({"Emberwind-Api-Key": key})
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def close(self):
         await self.session.close()
+
+    async def login(self, email: str, password: str) -> User:
+        """
+        Login to the API.
+
+        :param email: The email for the client.
+        :param password: The password for the client.
+        :return: The user object.
+        """
+        self.user = await AuthorizationController.login(
+            self.session,
+            self.url,
+            email=email,
+            password=password,
+        )
+
+        return self.user
+
+    async def logout(self):
+        """
+        Logout of the API.
+        """
+        self.user = None
+        return await AuthorizationController.logout(self.session, self.url)
 
     async def get_all_faq(
         self, keyword: str = "", page: int = 0, size: int = 10

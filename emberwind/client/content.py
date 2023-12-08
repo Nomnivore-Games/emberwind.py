@@ -169,10 +169,10 @@ class NewsController:
     async def _get_article_from_slug(session: Session, url: str, slug: str) -> Article:
         """
         Get an article based on the given slug.
-        :param session:
-        :param url:
-        :param slug:
-        :return:
+        :param session: The session to use.
+        :param url: The base URL.
+        :param slug: The slug of the article.
+        :return: The article.
         """
         response = await session.get(
             f"{url}/content/news/{slug}",
@@ -186,11 +186,11 @@ class NewsController:
     ) -> Article:
         """
         Get an article based on the given slug or article.
-        :param session:
-        :param url:
-        :param slug:
-        :param article:
-        :return:
+        :param session: The session to use.
+        :param url: The base URL.
+        :param slug: The slug of the article.
+        :param article: The article.
+        :return: The article.
         """
         if slug:
             return await NewsController._get_article_from_slug(session, url, slug)

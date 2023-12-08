@@ -10,7 +10,7 @@ Welcome to emberwind.py's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   api
+   modules
 
 
 
